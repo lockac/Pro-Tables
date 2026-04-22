@@ -1,0 +1,338 @@
+/* Pro Sheets Admin Styles */
+
+.ps-editor-layout { display: block; background: #fff; border: 1px solid #ccd0d4; margin-top: 20px; border-radius: 4px; overflow: hidden; }
+.ps-tabs-sidebar { width: 100%; display: flex; background: #f0f0f1; border-bottom: 1px solid #ccd0d4; }
+.ps-tab { padding: 15px 25px; cursor: pointer; border-right: 1px solid #ccd0d4; font-weight: 500; }
+.ps-tab.active { background: #fff; color: #2271b1; font-weight: 600; border-bottom: 2px solid #2271b1; position: relative; bottom: -1px; }
+.ps-editor-content { flex: 1; padding: 30px; border-bottom: 1px solid #eee; }
+.ps-tab-content { display: none; }
+.ps-tab-content.active { display: block; }
+
+.freeze-flex-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+#tab-freeze .freeze-flex-container { grid-template-columns: repeat(4, 1fr); gap: 15px; }
+.freeze-section-col { background: #f9f9f9; padding: 20px; border: 1px solid #eee; border-radius: 8px; max-width: 400px; }
+#tab-freeze .freeze-section-col { max-width: 100% !important; padding: 15px; }
+.freeze-section-col h3 { margin-top: 0; font-size: 14px; border-bottom: 1px solid #ddd; padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+.freeze-field-row { margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.freeze-field-row label { font-size: 12px; color: #555; white-space: nowrap; }
+.freeze-field-row select, .freeze-field-row input:not([type="checkbox"]) { width: 110px; font-size: 12px; height: 28px; }
+.freeze-field-row input[type="color"] { width: 40px !important; }
+.freeze-field-row .l_align_to_col input[type="checkbox"] {
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    background: #fff;
+    color: #50575e; 
+    clear: none;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 0;
+    height: 1rem;
+    margin: -.25rem .25rem 0 0;
+    outline: 0;
+    padding: 0 !important;
+    text-align: center;
+    vertical-align: middle;
+    width: 1rem;
+    min-width: 1rem;
+    -webkit-appearance: none;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    transition: .05s border-color ease-in-out;
+}
+input[name="l_align_to_col"]:checked::after {
+    border-color: unset !important;
+}
+
+/* Align to Column Checkbox - Only for Left/Right Sidebar
+input[name="l_align_to_col"],
+input[name="r_align_to_col"] {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-height: 20px !important;
+    border: 1px solid #8c8f94 !important;
+    border-radius: 4px !important;
+    background: #fff !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    vertical-align: middle !important;
+}
+
+input[name="l_align_to_col"]:checked,
+input[name="r_align_to_col"]:checked {
+    background: #fff !important;
+    border-color: #8c8f94 !important;
+}
+
+input[name="l_align_to_col"]:checked::after,
+input[name="r_align_to_col"]:checked::after {
+    content: '✓' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    color: #333 !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    line-height: 1 !important;
+} */
+
+.ps-size-50 { width: 50px !important; min-width: 50px !important; text-align: center; }
+.ps-size-refresh { width: 60px !important; min-width: 60px !important; text-align: center; }
+.ps-box-shadow-input { width: 240px !important; min-width: 240px !important; }
+.ps-padding-input { width: 100px !important; min-width: 100px !important; }
+
+.ps-sheet-table { border-spacing: 0 10px; border-collapse: separate; }
+.ps-sheet-table th { text-align: left; width: 140px; font-size: 13px; color: #333; }
+.ps-sheet-table input.regular-text { width: 350px !important; }
+
+.refresh-flex { display: flex; align-items: center; gap: 8px; }
+.ps-help-text { font-size: 11px; color: #999; margin-top: 4px; display: block; font-style: italic; }
+.section-disabled .freeze-field-row { opacity: 0.3; pointer-events: none; filter: grayscale(1); }
+
+.ps-opacity-slider-wrap { display: flex; align-items: center; gap: 10px; flex: 1; }
+.ps-opacity-slider { flex: 1; height: 4px; -webkit-appearance: none; appearance: none; background: #e5e5e5; border-radius: 2px; outline: none; }
+.ps-opacity-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; background: #2271b1; border: 2px solid #fff; border-radius: 50%; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+.ps-opacity-value { min-width: 35px; font-size: 12px; font-weight: 600; color: #555; text-align: right; }
+
+.ps-style-group, .ps-case-group { display: inline-flex; border: 1px solid #c3c4c7; border-radius: 3px; overflow: hidden; background: #fff; }
+.ps-style-btn, .ps-case-btn { display: flex; align-items: center; justify-content: center; height: 28px; border-right: 1px solid #c3c4c7; cursor: pointer; background: #fff; transition: all 0.1s; user-select: none; font-size: 13px; }
+.ps-style-btn:last-child, .ps-case-btn:last-child { border-right: none; }
+.ps-style-btn:hover, .ps-case-btn:hover { background: #f0f0f1; }
+.ps-style-btn.active, .ps-case-btn.active { background: #e8f0fe; color: #1d2327; font-weight: 600; }
+.ps-style-btn input, .ps-case-btn input { display: none; }
+
+.ps-style-btn.is-bold { font-weight: 800; width: 32px; }
+.ps-style-btn.is-italic { font-style: italic; width: 32px; }
+.ps-style-btn.is-underline { text-decoration: underline; text-underline-offset: 2px; width: 32px; }
+.ps-case-btn { width: 44px; font-family: monospace; font-size: 12px; text-align: center; }
+.ps-case-btn.is-lower { letter-spacing: -0.5px; }
+.ps-case-btn.is-upper { letter-spacing: 0.5px; }
+.ps-api-input::placeholder { color: #999 !important; }
+
+/* Admin List & Menu Styles */
+.prosheets-admin-wrap { margin-top: 10px; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+.prosheets-header-icon { width: 20px; height: 20px; vertical-align: middle; margin-right: 10px; position: relative; top: -2px; padding: 9px; }
+.prosheets-list { border: 1px solid #e5e5e5; background: #fff; width: 100%; border-collapse: collapse; margin-top: 15px; }
+.prosheets-list th { background: #f8f9fa; text-align: left; padding: 12px 15px; font-weight: 600; border-bottom: 2px solid #e5e5e5; }
+.prosheets-list td { padding: 12px 10px; border-bottom: 1px solid #eee; text-align: left; vertical-align: middle; }
+.col-id { width: 50px; color: #999; }
+.col-shortcode { width: 200px; }
+.col-actions { width: 190px; text-align: right !important; }
+.icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; color: #888; background: none; border: none; cursor: pointer; transition: transform 0.2s; vertical-align: middle; text-decoration:none; padding: 0; margin-left: 4px; }
+.icon-btn:hover { transform: scale(1.2); color: #2271b1; }
+.pt-code-badge { background: #f0f0f1; padding: 4px 8px; border-radius: 4px; font-family: monospace; font-size: 12px; color: #333; margin-right: 5px; border: 1px solid #dcdcde; }
+
+/* Sidebar Menu Icon Padding Fix */
+#toplevel_page_prosheets .wp-menu-image img {
+    width: 15px;
+    height: 15px;
+    box-sizing: content-box; /* Prevents WordPress scaling bug on inactive state */
+    display: block;
+    margin: 0 auto;
+}
+
+/* Highlight Tab - Compact Background + Transparency Row */
+.ps-highlight-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 20px;
+}
+.ps-highlight-row label {
+    font-size: 12px;
+    color: #555;
+    min-width: 85px;
+}
+.ps-bg-trans-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+.ps-bg-trans-group .my-color-picker {
+    width: 40px;
+    height: 28px;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Highlight Tab - Vertical Stack Layout */
+.ps-highlight-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.ps-highlight-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.ps-highlight-row label {
+    font-size: 13px;
+    color: #1d2327;
+    font-weight: 500;
+    min-width: 100px;
+}
+.ps-highlight-row .my-color-picker {
+    width: 120px;
+}
+
+/* Highlight Tab Layout */
+.ps-highlight-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.ps-form-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.ps-form-row label {
+    font-size: 13px;
+    color: #1d2327;
+    font-weight: 500;
+    min-width: 25px !important; /* Fixed width for alignment */
+}
+
+/* Slider Row Alignment (Matches the input fields above) */
+.ps-align-input {
+    padding-left: 110px; /* Label width + gap */
+}
+
+/* Highlight Tab - Box Container (like other tabs) */
+.ps-highlight-box {
+    max-width: 400px;
+    background: #f9f9f9;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.ps-highlight-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ps-form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes content to right */
+    gap: 15px;
+}
+
+.ps-form-row label {
+    font-size: 13px;
+    color: #1d2327;
+    font-weight: 500;
+    min-width: 95px; /* Consistent label width */
+    text-align: left;
+}
+
+.ps-form-row input[type="text"] {
+    width: 120px;
+}
+
+/* Slider row - no label, align to match inputs */
+.ps-align-input {
+    justify-content: flex-end; /* Align slider to right */
+    padding-right: 0;
+}
+
+/* Transparency Slider Container - 150px width */
+.ps-trans-slider-container {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 3px;
+    padding-right: 5px;
+}
+
+.ps-trans-slider-container input[type="range"] {
+    flex: 1;
+    height: 16px;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 8px;
+     border: 1px solid #e0e0e0;
+    outline: none;
+    cursor: pointer;
+    background-image: 
+        linear-gradient(45deg, #e5e5e5 25%, transparent 25%), 
+        linear-gradient(-45deg, #e5e5e5 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #e5e5e5 75%), 
+        linear-gradient(-45deg, transparent 75%, #e5e5e5 75%);
+    background-size: 8px 8px;
+    background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+}
+
+.ps-trans-slider-container input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: 2px solid #222;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-top: -2px;
+}
+
+.ps-trans-slider-container input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: 2px solid #222;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.ps-trans-percent {
+    /* min-width: 36px; */
+    font-size: 13px;
+    font-weight: 600;
+    color: #50575e;
+    text-align: right;
+    line-height: 1;
+    margin-right: 6px;
+}
+
+/* Font Style Buttons - Match Freeze Pane size */
+.ps-style-group {
+    display: inline-flex;
+    border: 1px solid #c3c4c7;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fff;
+    margin-right: 6px;
+
+}
+
+.ps-style-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-right: 1px solid #c3c4c7;
+    cursor: pointer;
+    background: #fff;
+    transition: all 0.1s;
+    user-select: none;
+    font-size: 14px;
+}
+
+.ps-style-btn:last-child { border-right: none; }
+.ps-style-btn:hover { background: #f0f0f1; }
+.ps-style-btn.active { background: #e8f0fe; color: #1d2327; font-weight: 700; }
+.ps-style-btn input { display: none; }
