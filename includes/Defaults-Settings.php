@@ -143,11 +143,12 @@ function prosheets_render_settings_form($data, $is_defaults = false) {
                     </div>
                 </div>
 
-                <!-- TABLE BORDER TAB -->
+                <!-- SHEET SIZE & BORDER TAB -->
                 <div id="tab-border" class="ps-tab-content">
                     <div class="freeze-flex-container">
                         <div class="freeze-section-col <?php echo ps_v($data, 't_b_en', 0) ? '' : 'section-disabled'; ?>">
                             <h3>Sheet Size & Border <input type="checkbox" name="t_b_en" class="ps-section-toggle" value="1" <?php checked(ps_v($data,'t_b_en',0),1); ?>></h3>
+                            <div class="freeze-field-row"><label>Sheet Height</label><input type="text" name="t_b_hght" class="ps-padding-input" placeholder="e.g. 10px, 1em" value="<?php echo ps_v($data, 't_b_hght', ''); ?>"></div>
                             <div class="freeze-field-row"><label>Thickness</label><input type="number" name="t_b_thk" class="ps-size-50" value="<?php echo ps_v($data, 't_b_thk', 0); ?>" min="0"></div>
                             <div class="freeze-field-row"><label>Color</label><input type="color" name="t_b_clr" value="<?php echo ps_v($data, 't_b_clr', '#dddddd'); ?>"></div>
                             <div class="freeze-field-row"><label>Radius</label><input type="number" name="t_b_rad" class="ps-size-50" value="<?php echo ps_v($data, 't_b_rad', 0); ?>" min="0"></div>
@@ -189,7 +190,7 @@ function prosheets_process_defaults_save() {
         'b_bold' => isset($_POST['b_bold']) ? 1 : 0, 'b_italic' => isset($_POST['b_italic']) ? 1 : 0, 'b_underline' => isset($_POST['b_underline']) ? 1 : 0,
         'hi_en' => isset($_POST['hi_en']) ? 1 : 0, 'hi_bg' => sanitize_hex_color($_POST['hi_bg']), 'hi_txt' => sanitize_hex_color($_POST['hi_txt']), 'hi_opacity' => max(0, min(100, intval($_POST['hi_opacity']))),
         'hi_bold' => isset($_POST['hi_bold']) ? 1 : 0, 'hi_italic' => isset($_POST['hi_italic']) ? 1 : 0, 'hi_underline' => isset($_POST['hi_underline']) ? 1 : 0,
-        't_b_en' => isset($_POST['t_b_en']) ? 1 : 0, 't_b_thk' => intval($_POST['t_b_thk']), 't_b_clr' => sanitize_hex_color($_POST['t_b_clr']), 't_b_rad' => intval($_POST['t_b_rad']), 't_b_shd' => sanitize_text_field($_POST['t_b_shd']), 't_b_pad_b' => sanitize_text_field($_POST['t_b_pad_b']),
+        't_b_en' => isset($_POST['t_b_en']) ? 1 : 0, 't_b_hght' => sanitize_text_field($_POST['t_b_hght']), 't_b_thk' => intval($_POST['t_b_thk']), 't_b_clr' => sanitize_hex_color($_POST['t_b_clr']), 't_b_rad' => intval($_POST['t_b_rad']), 't_b_shd' => sanitize_text_field($_POST['t_b_shd']), 't_b_pad_b' => sanitize_text_field($_POST['t_b_pad_b']),
         'h_en' => isset($_POST['h_en']) ? 1 : 0, 'h_rows' => intval($_POST['h_rows']), 'h_merges_en' => isset($_POST['h_merges_en']) ? 1 : 0, 'h_bg' => sanitize_hex_color($_POST['h_bg']), 'h_txt' => sanitize_hex_color($_POST['h_txt']), 'h_font' => intval($_POST['h_font']), 'h_align' => sanitize_text_field($_POST['h_align']), 'h_valign' => sanitize_text_field($_POST['h_valign']), 'h_b_clr' => sanitize_hex_color($_POST['h_b_clr']), 'h_b_thk' => intval($_POST['h_b_thk']),
         'h_bold' => isset($_POST['h_bold']) ? 1 : 0, 'h_italic' => isset($_POST['h_italic']) ? 1 : 0, 'h_underline' => isset($_POST['h_underline']) ? 1 : 0, 'h_case' => sanitize_text_field($_POST['h_case']),
         'f_en' => isset($_POST['f_en']) ? 1 : 0, 'f_rows' => intval($_POST['f_rows']), 'f_bg' => sanitize_hex_color($_POST['f_bg']), 'f_txt' => sanitize_hex_color($_POST['f_txt']), 'f_font' => intval($_POST['f_font']), 'f_align' => sanitize_text_field($_POST['f_align']), 'f_valign' => sanitize_text_field($_POST['f_valign']), 'f_b_clr' => sanitize_hex_color($_POST['f_b_clr']), 'f_b_thk' => intval($_POST['f_b_thk']),
