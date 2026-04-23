@@ -131,14 +131,22 @@ add_action('admin_notices', 'prosheets_duplicate_notice');
             'r_align_to_col' => isset($_POST['r_align_to_col']) ? 1 : 0,
             );
 
-        $mandatory = ['name', 'sheet_id', 'range', 'cache_time', 'cache_unit'];
+        $mandatory = ['name', 'sheet_id', 'range'];
         $clean_overrides = [];
         foreach ($mandatory as $key) $clean_overrides[$key] = $posted[$key];
-        foreach ($posted as $key => $value) {
-            if (in_array($key, $mandatory)) continue;
-            $default_val = isset($defaults[$key]) ? $defaults[$key] : '';
-            if (!prosheets_values_match($value, $default_val)) $clean_overrides[$key] = $value;
+      foreach ($posted as $key => $value) {
+        if (in_array($key, $mandatory)) continue;
+        
+        // Skip saving empty values to allow inheritance
+        if ($value === '' || $value === null) {
+            continue;
         }
+        
+        $default_val = isset($defaults[$key]) ? $defaults[$key] : '';
+        if (!prosheets_values_match($value, $default_val)) {
+            $clean_overrides[$key] = $value;
+        }
+    }
         $tables[$id_to_save] = $clean_overrides;
         update_option('prosheets_tables', $tables);
         wp_safe_redirect(admin_url('admin.php?page=prosheets'));
